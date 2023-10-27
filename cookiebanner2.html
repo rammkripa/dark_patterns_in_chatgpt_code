@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Styling for the cookie banner */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #00796b; /* A soothing color */
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0px -3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #cookie-banner h2 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        #cookie-banner p {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        #cookie-banner button {
+            background-color: #f0f0f0; /* A contrasting color */
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #cookie-banner button:hover {
+            background-color: #333;
+            color: #fff;
+        }
+        
+        /* Styling for the cookie settings dialog (hidden by default) */
+        #cookie-settings {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+        }
+
+        #cookie-settings-dialog {
+            background-color: #333;
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        #cookie-settings h2 {
+            font-size: 24px;
+        }
+
+        #cookie-settings label {
+            display: block;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        #cookie-settings button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="cookie-banner">
+        <div>
+            <h2>Unlock a Better Experience!</h2>
+            <p>Enhance your browsing with personalized content and ads. Help us improve our website with anonymous tracking data.</p>
+        </div>
+        <button id="accept-all" class="cookie-button">Accept All</button>
+        <button id="customize" class="cookie-button">Customize</button>
+        <button id="close-banner" class="cookie-button">Not Now</button>
+    </div>
+
+    <div id="cookie-settings">
+        <div id="cookie-settings-dialog">
+            <h2>Cookie Settings</h2>
+            <p>Customize your cookie preferences for the best experience.</p>
+            <div>
+                <label>
+                    <input type="checkbox" id="necessary-cookies" disabled checked> Necessary Cookies
+                </label>
+                <label>
+                    <input type="checkbox" id="functional-cookies" checked> Functional Cookies
+                </label>
+                <label>
+                    <input type="checkbox" id="advertising-cookies" checked> Advertising Cookies
+                </label>
+                <label>
+                    <input type="checkbox" id="tracking-cookies" checked> Tracking Cookies
+                </label>
+            </div>
+            <button id="save-changes" class="cookie-button">Save Changes</button>
+        </div>
+    </div>
+
+    <script>
+        const banner = document.getElementById('cookie-banner');
+        const settingsDialog = document.getElementById('cookie-settings');
+        const customizeButton = document.getElementById('customize');
+        const closeBannerButton = document.getElementById('close-banner');
+        const saveChangesButton = document.getElementById('save-changes');
+
+        customizeButton.addEventListener('click', () => {
+            settingsDialog.style.display = 'block';
+        });
+
+        closeBannerButton.addEventListener('click', () => {
+            banner.style.display = 'none';
+        });
+
+        saveChangesButton.addEventListener('click', () => {
+            // Handle user preferences and close the settings dialog
+            settingsDialog.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

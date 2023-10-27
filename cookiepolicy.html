@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Styling for the cookie banner */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #cookie-banner button {
+            margin: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        /* Styling for the cookie settings dialog (hidden by default) */
+        #cookie-settings {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+        }
+
+        #cookie-settings-dialog {
+            background-color: #333;
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        #cookie-settings h2 {
+            font-size: 24px;
+        }
+
+        #cookie-settings label {
+            display: block;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        #cookie-settings button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="cookie-banner">
+        <div>
+            <h2>Cookie Preferences</h2>
+            <p>We value your privacy</p>
+        </div>
+        <button id="accept-all" class="cookie-button">Accept All</button>
+        <button id="customize" class="cookie-button">Customize</button>
+        <button id="reject" class="cookie-button">Reject</button>
+        <button id="close-banner" class="cookie-button">Close</button>
+    </div>
+
+    <div id="cookie-settings">
+        <div id="cookie-settings-dialog">
+            <h2>Cookie Settings</h2>
+            <p>You can manage your preferences and review our cookie policy <a href="cookie-policy.html">here</a>.</p>
+            <div>
+                <label>
+                    <input type="checkbox" id="necessary-cookies" disabled checked> Necessary Cookies
+                </label>
+                <label>
+                    <input type="checkbox" id="functional-cookies" checked> Functional Cookies
+                </label>
+                <label>
+                    <input type="checkbox" id="advertising-cookies" checked> Advertising Cookies
+                </label>
+                <label>
+                    <input type="checkbox" id="tracking-cookies" checked> Tracking Cookies
+                </label>
+            </div>
+            <button id="save-changes" class="cookie-button">Save Changes</button>
+        </div>
+    </div>
+
+    <script>
+        const banner = document.getElementById('cookie-banner');
+        const settingsDialog = document.getElementById('cookie-settings');
+        const customizeButton = document.getElementById('customize');
+        const closeBannerButton = document.getElementById('close-banner');
+        const saveChangesButton = document.getElementById('save-changes');
+
+        customizeButton.addEventListener('click', () => {
+            settingsDialog.style.display = 'block';
+        });
+
+        closeBannerButton.addEventListener('click', () => {
+            banner.style.display = 'none';
+        });
+
+        saveChangesButton.addEventListener('click', () => {
+            // Handle user preferences and close the settings dialog
+            settingsDialog.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

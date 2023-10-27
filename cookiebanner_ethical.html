@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Website</title>
+</head>
+<body>
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background-color: #333; color: #fff; padding: 10px; text-align: center; z-index: 999; display: none;">
+        <p>Your Privacy Matters</p>
+        <p>We use cookies to enhance your browsing experience. By clicking 'Accept,' you agree to our use of cookies.</p>
+        <button id="accept-cookies">Accept</button>
+        <a href="#" id="learn-more-cookies">Learn More</a>
+    </div>
+
+    <script>
+        // JavaScript to show the cookie banner
+        window.addEventListener("load", function () {
+            var cookieBanner = document.getElementById("cookie-banner");
+            var acceptButton = document.getElementById("accept-cookies");
+            var learnMoreLink = document.getElementById("learn-more-cookies");
+
+            // Check if the user has previously accepted cookies
+            var userAcceptedCookies = localStorage.getItem("userAcceptedCookies");
+
+            if (!userAcceptedCookies) {
+                cookieBanner.style.display = "block";
+            }
+
+            acceptButton.addEventListener("click", function () {
+                localStorage.setItem("userAcceptedCookies", "true");
+                cookieBanner.style.display = "none";
+            });
+
+            learnMoreLink.addEventListener("click", function () {
+                // Replace with the URL of your full Cookie Policy
+                window.location.href = "cookie-policy.html";
+            });
+        });
+    </script>
+</body>
+</html>

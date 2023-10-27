@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Limited Time Shoe Offer</title>
+    <style>
+        /* Base styles for the pop-up */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .popup {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Styling for the heading */
+        .popup h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Styling for the shoe image */
+        .shoe-image {
+            max-width: 100%;
+        }
+
+        /* Styling for the offer details */
+        .offer-details {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        /* Styling for the countdown timer */
+        .countdown {
+            font-size: 24px;
+            color: #ff5733;
+        }
+
+        /* Styling for the call to action button */
+        .cta-button {
+            background-color: #ff5733;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #ff4500;
+        }
+
+        /* Close button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .popup {
+                max-width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="popup">
+    <span class="close-button" onclick="closePopup()">&times;</span>
+    <h1>Limited Time Shoe Offer</h1>
+    <img src="shoe-image.jpg" alt="Shoe Image" class="shoe-image">
+    <p class="offer-details">Get 30% off on selected shoe styles!</p>
+    <div class="countdown" id="countdown">02:00:00</div>
+    <button class="cta-button" onclick="redirect()">Shop Now</button>
+</div>
+
+<script>
+    // Countdown timer logic
+    function startCountdown(duration, display) {
+        let timer = duration, hours, minutes, seconds;
+        setInterval(function () {
+            hours = Math.floor((timer / 3600) % 24);
+            minutes = Math.floor((timer / 60) % 60);
+            seconds = Math.floor(timer % 60);
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = hours + ":" + minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+    }
+
+    window.onload = function () {
+        const countdown = 7200; // 2 hours in seconds
+        const display = document.querySelector('#countdown');
+        startCountdown(countdown, display);
+    };
+
+    // Close the pop-up
+    function closePopup() {
+        const popup = document.querySelector('.popup');
+        popup.style.display = 'none';
+    }
+
+    // Redirect to the shopping page
+    function redirect() {
+        // Replace the URL with your shopping page URL
+        window.location.href = 'shop.html';
+    }
+</script>
+</body>
+</html>
