@@ -1,0 +1,68 @@
+<div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+        <p>This website uses cookies to ensure you get the best experience on our website.</p>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="cookie-accept">Accept</button>
+            <a href="/privacy-policy" class="cookie-learn-more">Learn more</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        z-index: 999;
+    }
+
+    .cookie-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .cookie-buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .cookie-accept {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .cookie-accept:hover {
+        background-color: #0056b3;
+    }
+
+    .cookie-learn-more {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .cookie-learn-more:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptCookiesButton = document.getElementById('accept-cookies');
+
+        acceptCookiesButton.addEventListener('click', function () {
+            cookieBanner.style.display = 'none';
+            // Add code here to set cookies to remember user's choice.
+        });
+    });
+</script>
